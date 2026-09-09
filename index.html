@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sorong Coiffure Barber Man, barbier & coiffeur à Nantes. Coupes homme, taille de barbe. Note 4,8/5. 8 Rue du Château. Réservez au 02 40 47 74 52.">
-    <title>Sorong Coiffure Barber Man | Barbier & Coiffeur à Nantes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Sorong Coiffure Barber Man, barbier & coiffeur au 8 Rue du Château à Nantes. Coupes et soins de barbe sur rendez-vous. Note 4,8/5. Découvrez nos services.">
+    <title>Sorong Coiffure Barber Man – Barbier & Coiffeur à Nantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Mukta:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #c9a227;
-            --background: #f5f0e6;
-            --text: #1a1a1a;
-            --cta: #c9a227;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Outfit', sans-serif;
-            --radius: 0;
+            --primary: #FF8A5C;
+            --secondary: #B8E6D8;
+            --background: #FFF3E0;
+            --text: #3E3E3E;
+            --cta: #FF6B6B;
+            --font-heading: 'Baloo 2', sans-serif;
+            --font-body: 'Mukta', sans-serif;
+            --radius: 50px;
         }
 
         * {
@@ -41,9 +41,16 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(26, 26, 26, 0.98);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,355 +60,326 @@
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--secondary);
-            text-decoration: none;
+            color: var(--primary);
         }
 
         nav ul {
-            display: flex;
+            display: none;
             list-style: none;
             gap: 2rem;
-            align-items: center;
+        }
+
+        nav ul.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1.5rem;
+            gap: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
-            color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
+            color: var(--text);
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
 
-        .burger-menu {
-            display: none;
+        .burger {
+            display: flex;
             flex-direction: column;
+            gap: 5px;
             cursor: pointer;
-            gap: 0.4rem;
+            background: none;
+            border: none;
         }
 
-        .burger-menu span {
-            width: 25px;
+        .burger span {
+            width: 24px;
             height: 3px;
-            background-color: var(--secondary);
+            background: var(--text);
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
 
-        .burger-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(10px, 10px);
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
         }
 
-        .burger-menu.active span:nth-child(2) {
+        .burger.active span:nth-child(2) {
             opacity: 0;
         }
 
-        .burger-menu.active span:nth-child(3) {
+        .burger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        @media (max-width: 767px) {
-            nav {
-                padding: 1rem;
-            }
-
-            nav .logo {
-                font-size: 1.2rem;
-            }
-
-            .burger-menu {
-                display: flex;
-            }
-
+        @media (min-width: 768px) {
             nav ul {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background-color: rgba(26, 26, 26, 0.99);
-                padding: 2rem;
-                gap: 1.5rem;
-                border-top: 1px solid var(--secondary);
+                display: flex;
+                flex-direction: row;
+                position: static;
+                background: none;
+                padding: 0;
+                box-shadow: none;
             }
 
             nav ul.open {
                 display: flex;
+                flex-direction: row;
+                position: static;
+                background: none;
+                padding: 0;
+                box-shadow: none;
+                gap: 2rem;
+                top: auto;
+                left: auto;
+                right: auto;
             }
 
-            nav a {
-                font-size: 1rem;
+            .burger {
+                display: none;
             }
         }
 
         /* Hero Section */
-        #hero {
+        section#hero {
             height: 100vh;
-            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('assets/hero.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, var(--primary) 0%, #FF9F7F 100%);
             display: flex;
             align-items: center;
-            padding: 2rem;
-            margin-top: 60px;
+            justify-content: center;
+            text-align: center;
+            color: white;
             position: relative;
             overflow: hidden;
+            margin-top: 60px;
         }
 
-        .hero-content {
+        section#hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/hero.jpg') center/cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        section#hero .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
             max-width: 600px;
-            color: #fff;
-            animation: fadeInLeft 1s ease-out;
         }
 
-        .hero-content h1 {
+        section#hero h1 {
             font-family: var(--font-heading);
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .hero-content p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+        section#hero p {
+            font-size: clamp(1rem, 4vw, 1.5rem);
             margin-bottom: 2rem;
-            font-weight: 300;
-            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .hero-cta {
+        section#hero .cta-group {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
-            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
+        @media (min-width: 768px) {
+            section#hero .cta-group {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        /* Buttons */
         .btn {
-            padding: 0.9rem 2rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            border: none;
+            font-family: var(--font-heading);
             font-size: 1rem;
             font-weight: 600;
-            text-decoration: none;
             cursor: pointer;
-            border: none;
+            text-decoration: none;
+            display: inline-block;
             transition: all 0.3s ease;
-            font-family: var(--font-body);
-        }
-
-        .btn-primary {
-            background-color: var(--cta);
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: #b8941f;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid var(--secondary);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 767px) {
-            #hero {
-                margin-top: 60px;
-                height: auto;
-                min-height: 100vh;
-                padding: 2rem 1rem;
-            }
-
-            .hero-content {
-                max-width: 100%;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* About Section */
-        #apropos {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        #apropos h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        #apropos p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 767px) {
-            #apropos {
-                padding: 2rem 1rem;
-            }
-
-            #apropos h2 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Featured Menu Section */
-        #services {
-            padding: 4rem 2rem;
-            background-color: #fff;
-        }
-
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto 3rem;
             text-align: center;
         }
 
-        .section-header h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .btn-primary {
+            background: var(--cta);
+            color: white;
         }
 
-        .section-header p {
-            font-size: 1.05rem;
+        .btn-primary:hover {
+            background: #FF5252;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 1.5rem;
+        }
+
+        section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section > .container > p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
             color: var(--text);
         }
 
-        .menu-grid {
+        /* About Section */
+        section#apropos {
+            background: white;
+        }
+
+        section#apropos .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Featured Menu / Services */
+        section#services {
+            background: var(--background);
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 2rem;
         }
 
-        .menu-card {
-            background-color: var(--background);
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: white;
             padding: 2rem;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            width: 20px;
-            height: 20px;
-            border-top: 2px solid var(--secondary);
-            border-left: 2px solid var(--secondary);
-        }
-
-        .menu-card::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: -8px;
-            width: 20px;
-            height: 20px;
-            border-bottom: 2px solid var(--secondary);
-            border-right: 2px solid var(--secondary);
-        }
-
-        .menu-card h3 {
+        .service-card h3 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .menu-card p {
-            font-size: 1rem;
+        .service-card p {
             color: var(--text);
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        @media (max-width: 767px) {
-            #services {
-                padding: 2rem 1rem;
+        /* Reviews Section */
+        section#avis {
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        /* Customer Reviews Section */
-        #avis {
-            padding: 4rem 2rem;
-            background-color: var(--background);
-        }
-
-        .reviews-container {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .review-card {
-            background-color: #fff;
+            background: var(--background);
             padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            position: relative;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
         }
 
-        .review-header {
+        .review-stars {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            gap: 0.25rem;
             margin-bottom: 1rem;
         }
 
-        .review-icon {
-            font-size: 1.5rem;
-            color: var(--secondary);
+        .star {
+            color: #FFB800;
+            font-size: 1.2rem;
         }
 
-        .review-meta {
-            flex: 1;
+        .review-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-style: italic;
         }
 
         .review-author {
+            font-family: var(--font-heading);
             font-weight: 600;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .review-date {
@@ -409,68 +387,39 @@
             color: #999;
         }
 
-        .review-stars {
-            display: flex;
-            gap: 0.3rem;
-            margin-top: 0.3rem;
-        }
-
-        .star {
-            color: var(--secondary);
-            font-size: 1rem;
-        }
-
-        .review-text {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--text);
-            font-style: italic;
-        }
-
-        @media (max-width: 767px) {
-            #avis {
-                padding: 2rem 1rem;
-            }
-
-            .review-card {
-                padding: 1.5rem;
-            }
-        }
-
         /* Gallery Section */
-        #galerie {
-            padding: 4rem 2rem;
-            background-color: #fff;
-        }
-
-        .gallery-carousel {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            display: flex;
-            gap: 1.5rem;
-            padding-bottom: 1rem;
-        }
-
-        .gallery-carousel::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .gallery-carousel::-webkit-scrollbar-track {
+        section#galerie {
             background: var(--background);
         }
 
-        .gallery-carousel::-webkit-scrollbar-thumb {
-            background: var(--secondary);
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                grid-auto-rows: 250px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .gallery-item:nth-child(3) {
+                grid-column: span 2;
+            }
         }
 
         .gallery-item {
-            flex: 0 0 300px;
-            height: 300px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            background: #ddd;
         }
 
         .gallery-item img {
@@ -484,110 +433,81 @@
             transform: scale(1.05);
         }
 
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            width: 20px;
-            height: 20px;
-            border-top: 2px solid var(--secondary);
-            border-left: 2px solid var(--secondary);
-            z-index: 10;
-        }
-
-        @media (max-width: 767px) {
-            #galerie {
-                padding: 2rem 1rem;
-            }
-
-            .gallery-item {
-                flex: 0 0 250px;
-                height: 250px;
-            }
-        }
-
         /* Hours & Location Section */
-        #horaires {
-            padding: 4rem 2rem;
-            background-color: var(--background);
+        section#horaires {
+            background: white;
         }
 
-        .hours-location-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hours-location-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hours-location-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .hours-table {
-            background-color: #fff;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .hours-table h3 {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .hours-table table {
             width: 100%;
             border-collapse: collapse;
         }
 
+        .hours-table th,
         .hours-table td {
-            padding: 0.8rem 0;
+            padding: 1rem;
+            text-align: left;
             border-bottom: 1px solid #eee;
-            font-size: 1rem;
+        }
+
+        .hours-table th {
+            background: var(--background);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--primary);
         }
 
         .hours-table td:first-child {
-            font-weight: 600;
+            font-weight: 500;
             color: var(--primary);
-            width: 40%;
         }
 
-        .hours-table td:last-child {
-            text-align: right;
-            color: var(--secondary);
-        }
-
-        .location-info {
-            background-color: #fff;
+        .address-block {
+            background: var(--background);
             padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius);
         }
 
-        .location-info h3 {
+        .address-block h3 {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
             color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .location-details {
-            margin-bottom: 2rem;
+        .address-block p {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
         }
 
-        .location-details p {
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-
-        .location-details strong {
+        .address-block a {
             color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .address-block a:hover {
+            text-decoration: underline;
         }
 
         .map-container {
             width: 100%;
             height: 300px;
-            border: 1px solid #ddd;
-            margin-top: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
         }
 
         .map-container iframe {
@@ -596,45 +516,18 @@
             border: none;
         }
 
-        @media (max-width: 767px) {
-            #horaires {
-                padding: 2rem 1rem;
-            }
-
-            .hours-location-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .map-container {
-                height: 250px;
-            }
-        }
-
         /* Contact Form Section */
-        #contact {
-            padding: 4rem 2rem;
-            background-color: #fff;
+        section#contact {
+            background: var(--background);
         }
 
-        .contact-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-wrapper h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        .contact-wrapper > p {
-            text-align: center;
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-            color: var(--text);
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .form-group {
@@ -643,17 +536,18 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
             font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem;
-            border: 1px solid #ddd;
+            padding: 0.75rem 1rem;
+            border: 2px solid #eee;
+            border-radius: 12px;
             font-family: var(--font-body);
             font-size: 1rem;
             transition: border-color 0.3s ease;
@@ -662,8 +556,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+            border-color: var(--primary);
         }
 
         .form-group textarea {
@@ -671,160 +564,118 @@
             min-height: 120px;
         }
 
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--cta);
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-body);
-        }
-
-        .form-submit:hover {
-            background-color: #b8941f;
-            transform: translateY(-2px);
-        }
-
-        .contact-cta-button {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--cta);
-            color: var(--primary);
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-cta-button:hover {
-            background-color: #b8941f;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 767px) {
-            #contact {
-                padding: 2rem 1rem;
-            }
-
-            .contact-wrapper h2 {
-                font-size: 1.8rem;
-            }
-        }
-
         /* Trust Signals Section */
-        #confiance {
-            padding: 4rem 2rem;
-            background-color: var(--background);
+        section#confiance {
+            background: white;
         }
 
-        .trust-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .trust-wrapper h2 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        .trust-wrapper > p {
-            text-align: center;
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-            color: var(--text);
-        }
-
-        .trust-grid {
+        .trust-signals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .trust-item {
-            background-color: #fff;
-            padding: 2rem;
+        @media (min-width: 768px) {
+            .trust-signals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .trust-signal {
+            background: var(--background);
+            padding: 1.5rem;
+            border-radius: var(--radius);
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .trust-item h3 {
-            font-family: var(--font-heading);
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-        }
-
-        .trust-item p {
+        .trust-signal p {
             font-size: 0.95rem;
             color: var(--text);
-            line-height: 1.6;
         }
 
-        @media (max-width: 767px) {
-            #confiance {
-                padding: 2rem 1rem;
-            }
+        .rating-display {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
 
-            .trust-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-stars .star {
+            color: #FFB800;
+            font-size: 1.2rem;
+        }
+
+        .review-count {
+            font-size: 0.9rem;
+            color: #999;
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary);
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.95rem;
+            background: var(--text);
+            color: white;
+            padding: 3rem 1.5rem 1.5rem;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        footer a {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
             color: var(--secondary);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #ddd;
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -832,44 +683,48 @@
             }
         }
 
-        /* Utility */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        section {
-            scroll-margin-top: 80px;
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">Sorong Coiffure</a>
-        <ul id="nav-menu">
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#apropos">À propos</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#avis">Avis</a></li>
-            <li><a href="#galerie">Galerie</a></li>
-            <li><a href="#horaires">Horaires</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger-menu" id="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="nav-container">
+            <div class="logo">Sorong Coiffure</div>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#avis">Avis</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#horaires">Horaires</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>L'art de la coupe et de la barbe à Nantes</h1>
-            <p>Bienvenue chez Sorong Coiffure Barber Man, votre salon de barbier et coiffeur au cœur de Nantes. Une expérience sur mesure, dans une ambiance chaleureuse et professionnelle.</p>
-            <div class="hero-cta">
+            <h1>Sorong Coiffure Barber Man</h1>
+            <p>Barbier & Coiffeur au cœur de Nantes</p>
+            <div class="cta-group">
                 <a href="#contact" class="btn btn-primary">Prendre rendez-vous</a>
                 <a href="tel:+33240477452" class="btn btn-secondary">Appeler maintenant</a>
             </div>
@@ -878,139 +733,151 @@
 
     <!-- About Section -->
     <section id="apropos">
-        <h2>Votre barbier de confiance au 8 Rue du Château</h2>
-        <p>Situé au 8 Rue du Château, 44000 Nantes, Sorong Coiffure Barber Man vous accueille du mardi au samedi. Forts d'une note de 4,8/5 et de 774 avis clients, nous mettons notre savoir-faire au service de votre style. Que vous souhaitiez une coupe classique ou tendance, une taille de barbe précise, notre équipe vous écoute et vous conseille pour un résultat à votre image.</p>
+        <div class="container">
+            <h2>À propos de Sorong Coiffure Barber Man</h2>
+            <div class="about-text">
+                <p>Situé au 8 Rue du Château à Nantes, Sorong Coiffure Barber Man est un salon de coiffure et barbier qui allie savoir-faire traditionnel et accueil chaleureux. Notre équipe vous reçoit dans un cadre convivial pour des coupes et des soins de barbe personnalisés, à l'écoute de vos envies.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Featured Menu Section -->
+    <!-- Featured Menu / Services Section -->
     <section id="services">
-        <div class="section-header">
-            <h2>Nos prestations</h2>
-            <p>Découvrez nos services de coiffure et de barbier, pensés pour les hommes exigeants.</p>
-        </div>
-        <div class="menu-grid">
-            <div class="menu-card fade-in-up">
-                <h3>Coupe homme</h3>
-                <p>Coupe adaptée à votre morphologie et vos envies, réalisée avec précision.</p>
+        <div class="container">
+            <h2>Nos services</h2>
+            <p>Nous proposons des prestations de coiffure et de barbier adaptées à chaque client. Contactez-nous pour connaître nos tarifs et disponibilités.</p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>Coupe homme</h3>
+                    <p>Coupe personnalisée selon vos envies et la forme de votre visage.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Taille de barbe</h3>
+                    <p>Dessin et entretien de votre barbe avec précision.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Soin complet</h3>
+                    <p>Coupe + taille de barbe + soin pour un look impeccable.</p>
+                </div>
             </div>
-            <div class="menu-card fade-in-up">
-                <h3>Taille de barbe</h3>
-                <p>Sculpture et soin de la barbe pour un rendu net et élégant.</p>
-            </div>
-            <div class="menu-card fade-in-up">
-                <h3>Soins du visage</h3>
-                <p>Traitements spécialisés pour une peau saine et revitalisée.</p>
+            <div class="text-center mt-2">
+                <a href="#contact" class="btn btn-primary">Réserver votre moment</a>
             </div>
         </div>
     </section>
 
     <!-- Customer Reviews Section -->
     <section id="avis">
-        <div class="reviews-container">
-            <div class="section-header">
-                <h2>Ils nous font confiance</h2>
-                <p>La satisfaction de nos clients est notre plus belle récompense.</p>
-            </div>
-            <div class="review-card fade-in-up">
-                <div class="review-header">
-                    <div class="review-icon">💬</div>
-                    <div class="review-meta">
-                        <div class="review-author">Samuel Bruyant</div>
-                        <div class="review-date">il y a une semaine</div>
-                        <div class="review-stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
+        <div class="container">
+            <h2>Ils nous font confiance</h2>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
                     </div>
+                    <p class="review-text">"De passage sur Nantes, ce fut un agréable moment ! Accueil super, coupe au top ! Avec une écoute du client. Je recommande vivement !"</p>
+                    <div class="review-author">Samuel Bruyant</div>
+                    <div class="review-date">il y a une semaine</div>
                 </div>
-                <p class="review-text">"De passage sur Nantes , ce fut un agréable moment ! Accueil super , coupe au top ! Avec une écoute du client. Je recommande vivement !"</p>
-            </div>
-            <div class="review-card fade-in-up">
-                <div class="review-header">
-                    <div class="review-icon">💬</div>
-                    <div class="review-meta">
-                        <div class="review-author">Youenn</div>
-                        <div class="review-date">il y a une semaine</div>
-                        <div class="review-stars">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
+                <div class="review-card fade-in">
+                    <div class="review-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
                     </div>
+                    <p class="review-text">"Bon coiffeur. J'y suis allé plusieurs fois et recommande."</p>
+                    <div class="review-author">Youenn</div>
+                    <div class="review-date">il y a une semaine</div>
                 </div>
-                <p class="review-text">"Bon coiffeur. J'y suis allé plusieurs fois et recommande."</p>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="galerie">
-        <div class="section-header">
+        <div class="container">
             <h2>Notre univers</h2>
-            <p>Un aperçu de notre salon et de nos réalisations.</p>
-        </div>
-        <div class="gallery-carousel">
-            <div class="gallery-item">
-                <img src="assets/hero.jpg" alt="Salon Sorong Coiffure - Ambiance chaleureuse">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/gallery-1.jpg" alt="Coupe homme - Détail du travail">
-            </div>
-            <div class="gallery-item">
-                <img src="assets/gallery-2.jpg" alt="Taille de barbe - Réalisation">
+            <p>Découvrez l'ambiance de notre salon et quelques-unes de nos réalisations.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="assets/hero.jpg" alt="Ambiance du salon Sorong Coiffure">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="assets/gallery-1.jpg" alt="Coupe de cheveux professionnelle">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="assets/gallery-2.jpg" alt="Détail d'une taille de barbe">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="assets/hero.jpg" alt="Équipe du salon">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Hours & Location Section -->
     <section id="horaires">
-        <div class="hours-location-wrapper">
-            <div class="hours-table">
-                <h3>Horaires d'ouverture</h3>
-                <table>
-                    <tr>
-                        <td>Lundi</td>
-                        <td>Fermé</td>
-                    </tr>
-                    <tr>
-                        <td>Mardi</td>
-                        <td>09:00 – 19:00</td>
-                    </tr>
-                    <tr>
-                        <td>Mercredi</td>
-                        <td>09:00 – 19:00</td>
-                    </tr>
-                    <tr>
-                        <td>Jeudi</td>
-                        <td>09:00 – 19:00</td>
-                    </tr>
-                    <tr>
-                        <td>Vendredi</td>
-                        <td>09:00 – 19:00</td>
-                    </tr>
-                    <tr>
-                        <td>Samedi</td>
-                        <td>09:00 – 18:30</td>
-                    </tr>
-                    <tr>
-                        <td>Dimanche</td>
-                        <td>Fermé</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="location-info">
-                <h3>Nous trouver</h3>
-                <div class="location-details">
-                    <p><strong>Adresse :</strong><br>8 Rue du Château<br>44000 Nantes<br>France</p>
-                    <p><strong>Téléphone :</strong><br><a href="tel:+33240477452">02 40 47 74 52</a></p>
+        <div class="container">
+            <h2>Horaires & Accès</h2>
+            <div class="hours-location-grid">
+                <div>
+                    <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 1rem;">Nos horaires</h3>
+                    <table class="hours-table">
+                        <thead>
+                            <tr>
+                                <th>Jour</th>
+                                <th>Horaires</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lundi</td>
+                                <td>Fermé</td>
+                            </tr>
+                            <tr>
+                                <td>Mardi</td>
+                                <td>09:00 – 19:00</td>
+                            </tr>
+                            <tr>
+                                <td>Mercredi</td>
+                                <td>09:00 – 19:00</td>
+                            </tr>
+                            <tr>
+                                <td>Jeudi</td>
+                                <td>09:00 – 19:00</td>
+                            </tr>
+                            <tr>
+                                <td>Vendredi</td>
+                                <td>09:00 – 19:00</td>
+                            </tr>
+                            <tr>
+                                <td>Samedi</td>
+                                <td>09:00 – 18:30</td>
+                            </tr>
+                            <tr>
+                                <td>Dimanche</td>
+                                <td>Fermé</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2717.5831707699997!2d-1.5533!3d47.2173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a3f5c5c5c5c5d%3A0x5c5c5c5c5c5c5c5c!2s8%20Rue%20du%20Ch%C3%A2teau%2C%2044000%20Nantes!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div>
+                    <div class="address-block">
+                        <h3>Nous trouver</h3>
+                        <p><strong>Adresse</strong></p>
+                        <p>8 Rue du Château<br>44000 Nantes<br>France</p>
+                        <p style="margin-top: 1rem;"><strong>Téléphone</strong></p>
+                        <p><a href="tel:+33240477452">+33 2 40 47 74 52</a></p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2747.8947619999997!2d-1.5527!3d47.2173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805eea0e0e0e0e1%3A0x0!2s8%20Rue%20du%20Ch%C3%A2teau%2C%2044000%20Nantes!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1018,12 +885,12 @@
 
     <!-- Contact Form Section -->
     <section id="contact">
-        <div class="contact-wrapper">
+        <div class="container">
             <h2>Contactez-nous</h2>
-            <p>Pour toute demande ou réservation, appelez-nous ou passez nous voir. Nous serons ravis de vous accueillir.</p>
-            <form action="#" method="POST">
+            <p>Pour toute demande de rendez-vous ou d'information, n'hésitez pas à nous écrire.</p>
+            <form class="contact-form" action="#" method="POST">
                 <div class="form-group">
-                    <label for="name">Nom complet</label>
+                    <label for="name">Nom</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
@@ -1038,41 +905,42 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="form-submit">Envoyer ma demande</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
             </form>
-            <a href="tel:+33240477452" class="contact-cta-button">Appeler le 02 40 47 74 52</a>
         </div>
     </section>
 
     <!-- Trust Signals Section -->
     <section id="confiance">
-        <div class="trust-wrapper">
+        <div class="container">
             <h2>Pourquoi nous choisir ?</h2>
-            <p>Une équipe à l'écoute, des prestations de qualité et une clientèle fidèle.</p>
-            <div class="trust-grid">
-                <div class="trust-item fade-in-up">
-                    <h3>⭐ Note moyenne de 4,8/5</h3>
-                    <p>Reconnus pour la qualité de nos prestations et notre accueil chaleureux.</p>
+            <p>Une équipe à l'écoute, un savoir-faire reconnu et une note moyenne de 4,8/5 sur plus de 770 avis clients.</p>
+            <div class="trust-signals-grid">
+                <div class="trust-signal fade-in">
+                    <p>✓ Accueil sans rendez-vous</p>
                 </div>
-                <div class="trust-item fade-in-up">
-                    <h3>👥 Plus de 770 avis clients</h3>
-                    <p>Des clients satisfaits qui reviennent régulièrement nous faire confiance.</p>
+                <div class="trust-signal fade-in">
+                    <p>✓ Équipe expérimentée</p>
                 </div>
-                <div class="trust-item fade-in-up">
-                    <h3>📍 Salon au cœur de Nantes</h3>
-                    <p>Facilement accessible, proche du parking et des transports en commun.</p>
+                <div class="trust-signal fade-in">
+                    <p>✓ Produits professionnels</p>
                 </div>
-                <div class="trust-item fade-in-up">
-                    <h3>🎯 Équipe expérimentée</h3>
-                    <p>Des barbiers et coiffeurs passionnés par leur métier et à votre écoute.</p>
+                <div class="trust-signal fade-in">
+                    <p>✓ Paiement par carte accepté</p>
                 </div>
-                <div class="trust-item fade-in-up">
-                    <h3>🛠️ Produits professionnels</h3>
-                    <p>Nous utilisons uniquement des produits de qualité pour vos cheveux et votre barbe.</p>
+                <div class="trust-signal fade-in">
+                    <p>✓ Proche parking</p>
                 </div>
-                <div class="trust-item fade-in-up">
-                    <h3>💳 Paiement par carte accepté</h3>
-                    <p>Paiement sécurisé et flexible pour votre confort.</p>
+                <div class="trust-signal fade-in">
+                    <div class="rating-display">4,8/5</div>
+                    <div class="rating-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="review-count">774 avis clients</div>
                 </div>
             </div>
         </div>
@@ -1080,17 +948,37 @@
 
     <!-- Footer -->
     <footer>
-        <p>Sorong Coiffure Barber Man – 8 Rue du Château, 44000 Nantes – Tél : <a href="tel:+33240477452">02 40 47 74 52</a></p>
-        <p>© 2026 Sorong Coiffure Barber Man</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sorong Coiffure Barber Man</h3>
+                    <p>Barbier & Coiffeur à Nantes</p>
+                    <p style="margin-top: 1rem;">Savoir-faire traditionnel et accueil chaleureux.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Adresse</h3>
+                    <p>8 Rue du Château<br>44000 Nantes<br>France</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="tel:+33240477452">+33 2 40 47 74 52</a></p>
+                    <p style="margin-top: 1rem;">Mardi – Samedi : 09:00 – 19:00<br>(sam. 18:30)</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Prendre rendez-vous</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sorong Coiffure Barber Man. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const burgerMenu = document.getElementById('burger-menu');
+        // Mobile menu toggle
+        const burger = document.getElementById('burger');
         const navMenu = document.getElementById('nav-menu');
 
-        burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('active');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
             navMenu.classList.toggle('open');
         });
 
@@ -1098,7 +986,7 @@
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                burgerMenu.classList.remove('active');
+                burger.classList.remove('active');
                 navMenu.classList.remove('open');
             });
         });
@@ -1112,25 +1000,27 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.menu-card, .review-card, .trust-item').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
         });
 
-        // Smooth scroll for navigation links
+        // Smooth scroll behavior for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(href);
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
